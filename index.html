@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C-SERVICE BUSINESS — ULTRA STUDIO | Vidéaste & Studio Premium RDC</title>
+  <meta name="description" content="C-Service Business Ultra Studio — Vidéaste, Réalisateur, Monteur Vidéo & Studio Multimédia Premium en République Démocratique du Congo. Productions cinéma 4K.">
+  <meta name="keywords" content="vidéaste RDC, studio cinéma Kinshasa, montage vidéo Congo, réalisateur RDC, production vidéo, clip musical, mariage vidéo, Cianney, C-Service Business">
+  <meta name="author" content="Cianney — C-Service Business">
+  <meta property="og:title" content="C-SERVICE BUSINESS — ULTRA STUDIO">
+  <meta property="og:description" content="Studio multimédia premium en RDC. Vidéaste, réalisateur, monteur vidéo. Transformons vos idées en œuvres cinématographiques.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#00d4ff">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">C-SERVICE<span> BUSINESS</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Ultra Studio — Chargement...</div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notif-container" class="notif-container"></div>
+
+<!-- SEARCH BAR -->
+<div id="search-bar" class="search-bar">
+  <input id="search-input" type="search" class="search-input" placeholder="Rechercher sur le site..." data-i18n-placeholder="search_placeholder">
+  <button class="search-close" onclick="closeSearch()">✕</button>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-icon">C</div>
+    <div class="logo-text">C-SERVICE BUSINESS<span class="brand">ULTRA STUDIO</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+    <li><a href="#academy" data-i18n="nav_academy">Académie</a></li>
+    <li><a href="#softwares" data-i18n="nav_softwares">Logiciels</a></li>
+    <li><a href="#news" data-i18n="nav_news">Actualités</a></li>
+    <li><a href="#business" data-i18n="nav_business">Business</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="sw">SW</button>
+    </div>
+    <button id="theme-btn" class="theme-btn" title="Thème">☀️</button>
+    <button onclick="openSearch()" class="theme-btn" title="Rechercher">🔍</button>
+    <button id="btn-login" class="btn-auth" onclick="openAuth()">Connexion</button>
+    <button id="btn-register" class="btn-auth primary-btn" onclick="openAuth()">S'inscrire</button>
+    <button id="btn-logout" class="btn-auth" onclick="handleLogout()" style="display:none">Déconnexion</button>
+    <div id="user-info" style="display:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7b2fff);color:#000;font-weight:900;align-items:center;justify-content:center;font-size:0.9rem;cursor:pointer" onclick="openAuth()"></div>
+  </div>
+  <button id="hamburger" class="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+  <a href="#hero" data-i18n="nav_home">Accueil</a>
+  <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+  <a href="#academy" data-i18n="nav_academy">Académie</a>
+  <a href="#softwares" data-i18n="nav_softwares">Logiciels</a>
+  <a href="#news" data-i18n="nav_news">Actualités</a>
+  <a href="#business" data-i18n="nav_business">Business</a>
+  <a href="#contact" data-i18n="nav_contact">Contact</a>
+  <div style="display:flex;gap:8px;padding:14px 16px">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="sw">SW</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="hero-bg"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span data-i18n="hero_badge">Studio Premium en RDC</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="line-1" data-i18n="hero_title1">C-SERVICE BUSINESS</span>
+      <span class="line-2" data-i18n="hero_title2">ULTRA STUDIO</span>
+    </h1>
+    <div class="hero-typewriter">
+      <span id="typewriter-text"></span><span class="cursor">|</span>
+    </div>
+    <p class="hero-slogan">
+      <span data-i18n="hero_slogan">"Transformons vos idées en œuvres cinématographiques."</span>
+    </p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn btn-primary">🎬 <span data-i18n="btn_portfolio">Voir les réalisations</span></a>
+      <a href="#contact" class="btn btn-outline">📱 <span data-i18n="btn_contact">Nous contacter</span></a>
+      <a href="#portfolio" class="btn btn-outline">📄 <span data-i18n="btn_portfolio2">Télécharger portfolio</span></a>
+      <button class="btn btn-gold" onclick="downloadZIP()">⬇️ <span data-i18n="btn_download">Télécharger projet ZIP</span></button>
+    </div>
+    <div style="margin-top:36px;display:flex;justify-content:center">
+      <div class="visitor-counter">
+        <span class="live-dot"></span>
+        <span id="visitor-count">1248</span>&nbsp;visiteurs en ligne
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num" data-target="350" data-suffix="+">0</div>
+      <div class="stat-label" data-i18n="stat1">Projets réalisés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="280" data-suffix="+">0</div>
+      <div class="stat-label" data-i18n="stat2">Clients satisfaits</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="8" data-suffix="">0</div>
+      <div class="stat-label" data-i18n="stat3">Années d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="12" data-suffix="">0</div>
+      <div class="stat-label" data-i18n="stat4">Pays couverts</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-tag" data-i18n="services_tag">Nos Services</div>
+    <h2 class="section-title">Ce que nous <span class="gradient-text">créons</span></h2>
+    <p class="section-subtitle">Productions cinéma, événements, publicités et formations — tout pour faire briller vos projets en RDC et dans le monde.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon">🎬</div><h3>Réalisation Cinéma</h3><p>Films, documentaires, courts-métrages avec équipement cinéma professionnel 4K/6K. Direction artistique complète.</p><span class="service-tag">4K · 6K · HDR</span></div>
+    <div class="service-card reveal"><div class="service-icon">💒</div><h3>Vidéo Mariage Premium</h3><p>Capturer chaque instant de votre jour J avec une sensibilité cinéma. Drone, multi-caméras, montage émotion.</p><span class="service-tag">Multi-cam · Drone</span></div>
+    <div class="service-card reveal"><div class="service-icon">🎵</div><h3>Clips Musicaux</h3><p>Productions vidéo musicales niveau international. Réalisation artistique, effets visuels, colour grading pro.</p><span class="service-tag">Artistique · VFX</span></div>
+    <div class="service-card reveal"><div class="service-icon">📺</div><h3>Publicités & Spots</h3><p>Spots TVC, publicités digitales, brand content. Création scénario, tournage, post-production broadcast quality.</p><span class="service-tag">TVC · Digital · Brand</span></div>
+    <div class="service-card reveal"><div class="service-icon">📡</div><h3>Live Streaming Pro</h3><p>Diffusion en direct multi-plateformes (YouTube, Facebook). Encodage HD, multi-caméras, régie mobile.</p><span class="service-tag">HD · Multi-plateformes</span></div>
+    <div class="service-card reveal"><div class="service-icon">✂️</div><h3>Montage & Post-Prod</h3><p>Montage professionnel, étalonnage, effets spéciaux, motion design, sous-titrage. Rendu 4K livré en 5 jours.</p><span class="service-tag">Adobe · DaVinci · AE</span></div>
+    <div class="service-card reveal"><div class="service-icon">⛪</div><h3>Couverture Église</h3><p>Enregistrement cultes, conférences, crusades. Multi-caméras PTZ, streaming simultané, archives HD.</p><span class="service-tag">PTZ · Streaming</span></div>
+    <div class="service-card reveal"><div class="service-icon">🏢</div><h3>Corporate & Institutionnel</h3><p>Films d'entreprise, portraits de dirigeants, rapports annuels vidéo, formations e-learning professionnelles.</p><span class="service-tag">Corporate · E-learning</span></div>
+    <div class="service-card reveal"><div class="service-icon">🎓</div><h3>Formations Vidéo</h3><p>Cours montage, réalisation et live streaming. Formations individuelles ou groupes. Certifications incluses.</p><span class="service-tag">Certifié · Pro</span></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:var(--bg-secondary)">
+  <div class="section-header">
+    <div class="section-tag" data-i18n="portfolio_tag">Portfolio</div>
+    <h2 class="section-title">Nos <span class="gradient-text">Réalisations</span></h2>
+    <p class="section-subtitle">Une sélection de nos meilleures productions cinéma, clips, mariages et événements.</p>
+  </div>
+  <div class="gallery-filters">
+    <button class="filter-btn active" data-filter="all" data-i18n="all_filters">Tout</button>
+    <button class="filter-btn" data-filter="mariage">💒 Mariage</button>
+    <button class="filter-btn" data-filter="clip">🎵 Clips</button>
+    <button class="filter-btn" data-filter="eglise">⛪ Église</button>
+    <button class="filter-btn" data-filter="pub">📺 Publicité</button>
+    <button class="filter-btn" data-filter="business">🏢 Business</button>
+    <button class="filter-btn" data-filter="doc">🎬 Documentaire</button>
+  </div>
+  <div id="gallery-grid" class="gallery-grid"></div>
+</section>
+
+<!-- ACADEMY -->
+<section id="academy">
+  <div class="section-header centered">
+    <div class="section-tag" data-i18n="academy_tag">Académie</div>
+    <h2 class="section-title">C-Service <span class="gradient-text">Academy</span></h2>
+    <p class="section-subtitle">Apprenez les techniques professionnelles de vidéo, cinéma et digital avec nos experts certifiés.</p>
+  </div>
+  <div class="academy-grid">
+    <div class="course-card reveal">
+      <div class="course-banner c1"><span>✂️</span><span class="course-badge badge-pro">PRO</span></div>
+      <div class="course-body">
+        <h3>Montage Vidéo Professionnel</h3>
+        <p>Adobe Premiere Pro & DaVinci Resolve de zéro au niveau expert. Projets réels inclus.</p>
+        <div class="course-meta"><span>⏱ 40h</span><span>👥 Individuel/Groupe</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:85%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Montage%20Vidéo" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-banner c2"><span>🎬</span><span class="course-badge badge-pro">PRO</span></div>
+      <div class="course-body">
+        <h3>Réalisation Cinéma</h3>
+        <p>Techniques de réalisation — cadrage, lumière, direction d'acteurs, scénario.</p>
+        <div class="course-meta"><span>⏱ 60h</span><span>👥 Groupe</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:70%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Réalisation%20Cinéma" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-banner c3"><span>💼</span><span class="course-badge badge-new">NOUVEAU</span></div>
+      <div class="course-body">
+        <h3>Business Digital RDC</h3>
+        <p>Monétiser vos compétences vidéo, créer votre studio, trouver des clients et gérer votre activité.</p>
+        <div class="course-meta"><span>⏱ 20h</span><span>👥 En ligne</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:60%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Business%20Digital" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-banner c4"><span>📱</span><span class="course-badge badge-free">GRATUIT</span></div>
+      <div class="course-body">
+        <h3>Création Contenu Social</h3>
+        <p>YouTube, TikTok, Instagram — créer des contenus viraux et développer votre audience.</p>
+        <div class="course-meta"><span>⏱ 15h</span><span>👥 En ligne</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:90%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Contenu%20Social" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-banner c5"><span>📡</span><span class="course-badge badge-pro">PRO</span></div>
+      <div class="course-body">
+        <h3>Live Streaming Professionnel</h3>
+        <p>OBS, Wirecast, vMix. Multi-caméras, encodage, diffusion simultanée.</p>
+        <div class="course-meta"><span>⏱ 25h</span><span>👥 Individuel</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:75%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Live%20Streaming" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-banner" style="background:linear-gradient(135deg,#003300,#00cc44);height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative"><span>🎨</span><span class="course-badge badge-new">NOUVEAU</span></div>
+      <div class="course-body">
+        <h3>Motion Design & After Effects</h3>
+        <p>Créer des animations, intros, lower thirds, motion graphics et effets visuels VFX.</p>
+        <div class="course-meta"><span>⏱ 35h</span><span>👥 Groupe</span></div>
+        <div class="course-progress"><div class="course-progress-fill" style="width:50%"></div></div>
+        <div style="display:flex;gap:10px"><a href="https://wa.me/243850406200?text=Formation%20Motion%20Design" target="_blank" class="btn-sm btn-primary">▶ Commencer</a><button class="btn-sm btn-outline-sm">📄 Programme</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARES -->
+<section id="softwares">
+  <div class="section-header centered">
+    <div class="section-tag" data-i18n="software_tag">Logiciels</div>
+    <h2 class="section-title">Outils de <span class="gradient-text">Production</span></h2>
+    <p class="section-subtitle">Les meilleurs logiciels utilisés par C-Service Business pour des productions de niveau international.</p>
+  </div>
+  <div class="softwares-grid">
+    <div class="software-card" style="--glow-color:rgba(156,0,255,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#9c00ff,#6600cc)">Pr</div>
+      <h4>Adobe Premiere Pro</h4><p>Montage vidéo professionnel standard industrie. 80% de nos productions.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div></div>
+      <a href="https://www.adobe.com/products/premiere.html" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(0,160,200,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#00a0c8,#0066aa)">Ae</div>
+      <h4>After Effects</h4><p>Motion design, effets visuels, animations. Titres cinéma et compositing avancé.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot"></div></div>
+      <a href="https://www.adobe.com/products/aftereffects.html" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(255,70,70,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#ff4646,#cc0000)">DR</div>
+      <h4>DaVinci Resolve</h4><p>Étalonnage couleur professionnel, Fusion VFX. Standard Hollywood pour le grading.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div></div>
+      <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(80,80,80,0.3)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#222,#444)">CC</div>
+      <h4>CapCut Pro</h4><p>Montage mobile rapide pour réseaux sociaux. Parfait pour contenu vertical TikTok.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot"></div></div>
+      <a href="https://www.capcut.com/" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(192,192,192,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#aaa,#666)">FC</div>
+      <h4>Final Cut Pro</h4><p>Montage optimisé Apple Silicon. Rendu ultra-rapide ProRes. Sur Mac Studio.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot"></div><div class="level-dot"></div></div>
+      <a href="https://www.apple.com/final-cut-pro/" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(88,152,231,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#5898e7,#2244cc)">Fm</div>
+      <h4>Filmora</h4><p>Montage accessible et créatif. Idéal pour débutants et productions rapides.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot"></div></div>
+      <a href="https://filmora.wondershare.com/" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(49,168,255,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#31a8ff,#0066cc)">Ps</div>
+      <h4>Adobe Photoshop</h4><p>Retouche photo, affiches, thumbnails YouTube et visuels broadcast professionnels.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div></div>
+      <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+    <div class="software-card" style="--glow-color:rgba(26,188,212,0.2)">
+      <div class="software-logo" style="background:linear-gradient(135deg,#1abcd4,#007799)">Lr</div>
+      <h4>Adobe Lightroom</h4><p>Étalonnage photo professionnel, presets cinéma, organisation bibliothèque avancée.</p>
+      <div class="software-level"><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot filled"></div><div class="level-dot"></div></div>
+      <a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank" class="btn-discover">Découvrir →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS TICKER -->
+<div class="news-ticker-wrap">
+  <div class="news-ticker" id="ticker-content">
+    <span>C-Service ouvre son studio 4K à Kinshasa ● Inscriptions Académie ouvertes ● Prix Excellence 2025 ● Nouveau pack mariage 2025 ● Live streaming haute qualité disponible ●</span>
+    <span>C-Service ouvre son studio 4K à Kinshasa ● Inscriptions Académie ouvertes ● Prix Excellence 2025 ● Nouveau pack mariage 2025 ● Live streaming haute qualité disponible ●</span>
+  </div>
+</div>
+
+<!-- ACTUALITES -->
+<section id="news">
+  <div class="section-header">
+    <div class="section-tag" data-i18n="news_tag">Actualités</div>
+    <h2 class="section-title">Dernières <span class="gradient-text">Nouvelles</span></h2>
+    <p class="section-subtitle">Restez informé de nos dernières productions, formations et événements.</p>
+  </div>
+  <div id="news-grid" class="news-grid"></div>
+</section>
+
+<!-- BUSINESS -->
+<section id="business">
+  <div class="section-header">
+    <div class="section-tag" data-i18n="business_tag">Business</div>
+    <h2 class="section-title">Opportunités & <span class="gradient-text">Services</span></h2>
+    <p class="section-subtitle">Nos offres premium pour vos projets vidéo, événements et formations.</p>
+  </div>
+  <div id="business-grid" class="business-grid"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--bg-secondary)">
+  <div class="section-header centered">
+    <div class="section-tag" data-i18n="testimonials_tag">Témoignages</div>
+    <h2 class="section-title">Ils nous font <span class="gradient-text">confiance</span></h2>
+    <p class="section-subtitle">La satisfaction de nos clients est notre plus grande récompense.</p>
+  </div>
+  <div id="testimonials-grid" class="testimonials-grid"></div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header centered">
+    <div class="section-tag" data-i18n="faq_tag">FAQ</div>
+    <h2 class="section-title">Questions <span class="gradient-text">Fréquentes</span></h2>
+    <p class="section-subtitle">Tout ce que vous devez savoir sur nos services et notre façon de travailler.</p>
+  </div>
+  <div id="faq-list" class="faq-list"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--bg-secondary)">
+  <div class="section-header">
+    <div class="section-tag" data-i18n="contact_tag">Contact</div>
+    <h2 class="section-title">Travaillons <span class="gradient-text">Ensemble</span></h2>
+  </div>
+  <div class="contact-wrapper">
+    <div class="reveal-left">
+      <h3 style="font-size:1.4rem;font-weight:800;margin-bottom:24px">Contactez-nous directement</h3>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div><div style="font-size:0.7rem;color:var(--color-gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:1px">WhatsApp</div>
+          <a href="https://wa.me/243850406200" target="_blank">+243 850 406 200</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div><div style="font-size:0.7rem;color:var(--color-gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:1px">Email</div>
+          <a href="mailto:Cianney029@gmail.com">Cianney029@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div><div style="font-size:0.7rem;color:var(--color-gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:1px">Localisation</div>
+          <span style="font-size:0.9rem;color:var(--color-light)">Kinshasa, République Démocratique du Congo</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">⏰</div>
+        <div><div style="font-size:0.7rem;color:var(--color-gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:1px">Disponibilité</div>
+          <span style="font-size:0.9rem;color:var(--color-light)">Lun–Sam · 8h00–20h00 CAT</span></div>
+      </div>
+      <div class="social-links">
+        <a href="https://wa.me/243850406200" target="_blank" class="social-btn" title="WhatsApp">📱</a>
+        <a href="mailto:Cianney029@gmail.com" class="social-btn" title="Email">✉️</a>
+        <a href="#" class="social-btn" title="YouTube">▶</a>
+        <a href="#" class="social-btn" title="Facebook">👥</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="#" class="social-btn" title="TikTok">🎵</a>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <form id="contact-form" class="contact-form">
+        <div class="form-group"><label>Votre nom</label><input id="contact-name" type="text" class="form-input" placeholder="Nom complet" required></div>
+        <div class="form-group"><label>Votre email</label><input id="contact-email" type="email" class="form-input" placeholder="votre@email.com" required></div>
+        <div class="form-group"><label>Sujet</label><input id="contact-subject" type="text" class="form-input" placeholder="Objet de votre demande"></div>
+        <div class="form-group"><label>Message</label><textarea id="contact-message" class="form-input" rows="5" placeholder="Décrivez votre projet..." required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">📨 Envoyer le message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="section-tag" data-i18n="download_tag">Téléchargement</div>
+  <br>
+  <div class="download-wrap reveal">
+    <div class="download-icon">📦</div>
+    <h3>Obtenez le projet <span class="gradient-text">complet</span></h3>
+    <p style="color:var(--color-gray);margin-bottom:32px">Téléchargez tous les fichiers du site prêts pour GitHub Pages et Android WebView.</p>
+    <div class="download-btns">
+      <button class="btn btn-primary" onclick="downloadZIP()">⬇️ Télécharger ZIP complet</button>
+      <a href="https://wa.me/243850406200?text=Je%20veux%20le%20projet%20C-Service%20Studio" target="_blank" class="btn btn-outline">📱 Obtenir via WhatsApp</a>
+    </div>
+    <p style="margin-top:24px;font-size:0.78rem;color:var(--color-gray)">✅ GitHub Pages &nbsp;·&nbsp; ✅ Android WebView &nbsp;·&nbsp; ✅ 100% HTML/CSS/JS &nbsp;·&nbsp; ✅ Sans erreurs</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:16px">
+        <div class="logo-icon">C</div>
+        <div class="logo-text">C-SERVICE BUSINESS<span class="brand">ULTRA STUDIO</span></div>
+      </div>
+      <p>Studio multimédia premium en RDC. Réalisation cinéma, montage vidéo, formations et productions digitales de niveau international.</p>
+      <div class="social-links">
+        <a href="https://wa.me/243850406200" target="_blank" class="social-btn">📱</a>
+        <a href="mailto:Cianney029@gmail.com" class="social-btn">✉️</a>
+        <a href="#" class="social-btn">▶</a>
+        <a href="#" class="social-btn">👥</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Réalisation Cinéma</a></li>
+        <li><a href="#services">Vidéo Mariage</a></li>
+        <li><a href="#services">Clips Musicaux</a></li>
+        <li><a href="#services">Live Streaming</a></li>
+        <li><a href="#services">Publicités</a></li>
+        <li><a href="#services">Corporate</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Académie</h5>
+      <ul>
+        <li><a href="#academy">Montage Vidéo</a></li>
+        <li><a href="#academy">Réalisation</a></li>
+        <li><a href="#academy">Business Digital</a></li>
+        <li><a href="#academy">Live Streaming</a></li>
+        <li><a href="#academy">After Effects</a></li>
+        <li><a href="#academy">Contenu Social</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="https://wa.me/243850406200">WhatsApp</a></li>
+        <li><a href="mailto:Cianney029@gmail.com">Email</a></li>
+        <li><a href="#contact">Kinshasa, RDC</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#download">Télécharger ZIP</a></li>
+        <li><a href="#" onclick="openAdmin();return false">Admin Panel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 C-Service Business — Ultra Studio. Tous droits réservés.</p>
+    <p>Fait avec ❤️ par <a href="https://wa.me/243850406200">Cianney</a> · Kinshasa, RDC</p>
+    <div class="visitor-counter"><span class="live-dot"></span><span id="visitor-count-footer">1248</span> visiteurs</div>
+  </div>
+</footer>
+
+<!-- FLOATING ACTION BUTTONS -->
+<div class="fab-group">
+  <button id="fab-back" class="fab fab-back" onclick="scrollToTop()" title="Haut de page">↑</button>
+  <a href="https://wa.me/243850406200?text=Bonjour%20Cianney%20!%20Je%20vous%20contacte%20depuis%20votre%20site." target="_blank" class="fab fab-wa" title="WhatsApp">📱</a>
+  <button id="fab-admin" class="fab fab-admin" onclick="openAdmin()" title="Admin" style="display:none">⚙️</button>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="video-modal" class="modal-overlay" onclick="if(event.target===this)closeVideoModal()">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeVideoModal()">✕</button>
+    <div class="modal-video" id="modal-video-content"></div>
+    <div class="modal-body">
+      <h3 id="modal-title" style="font-size:1.1rem;font-weight:700;margin-bottom:6px"></h3>
+      <p id="modal-desc" style="font-size:0.85rem;color:var(--color-gray)"></p>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="auth-modal" class="auth-modal" onclick="if(event.target===this)closeAuth()">
+  <div class="auth-box" style="position:relative">
+    <button class="auth-close" onclick="closeAuth()" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;color:var(--color-white);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
+    <div class="auth-logo">
+      <h3>C-SERVICE BUSINESS</h3>
+      <p>Espace Membre — Ultra Studio</p>
+    </div>
+    <div class="auth-tabs-wrap">
+      <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Connexion</button>
+      <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">S'inscrire</button>
+    </div>
+    <form id="login-form" class="auth-form" style="display:flex;flex-direction:column;gap:14px">
+      <input id="login-email" type="email" placeholder="Email" required>
+      <input id="login-pass" type="password" placeholder="Mot de passe" required>
+      <button type="submit" class="btn-auth-submit">Se connecter</button>
+      <p class="auth-divider" style="font-size:0.76rem;color:var(--color-gray);text-align:center">Admin: admin@cservice.cd / admin123</p>
+    </form>
+    <form id="register-form" class="auth-form" style="display:none;flex-direction:column;gap:14px">
+      <input id="reg-name" type="text" placeholder="Nom complet" required>
+      <input id="reg-email" type="email" placeholder="Email" required>
+      <input id="reg-pass" type="password" placeholder="Mot de passe (min. 6 car.)" required minlength="6">
+      <button type="submit" class="btn-auth-submit">Créer mon compte</button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="panel-overlay" class="panel-overlay" onclick="closeAdmin()"></div>
+<div id="admin-panel" class="admin-panel">
+  <div class="admin-header">
+    <div>
+      <h3>⚙️ Admin Panel</h3>
+      <div style="font-size:0.72rem;color:var(--color-primary)">C-Service Business CMS</div>
+    </div>
+    <button class="admin-close" onclick="closeAdmin()">✕</button>
+  </div>
+  <div class="admin-body">
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="news" onclick="switchAdminTab('news')">📰 Actualités</button>
+      <button class="admin-tab" data-tab="gallery" onclick="switchAdminTab('gallery')">🎬 Vidéos</button>
+      <button class="admin-tab" data-tab="business" onclick="switchAdminTab('business')">💼 Business</button>
+    </div>
+    <form id="admin-form" class="admin-form">
+      <div><label>Titre *</label><input id="pub-title" type="text" placeholder="Titre de la publication" required></div>
+      <div><label>Description</label><textarea id="pub-desc" rows="3" placeholder="Description / contenu..."></textarea></div>
+      <div><label>Catégorie</label>
+        <select id="pub-cat">
+          <option value="Studio">Studio</option><option value="Formation">Formation</option>
+          <option value="Événement">Événement</option><option value="mariage">Mariage</option>
+          <option value="clip">Clip Musical</option><option value="pub">Publicité</option>
+          <option value="eglise">Église</option><option value="doc">Documentaire</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+      <div><label>URL Image (optionnel)</label><input id="pub-img" type="url" placeholder="https://..."></div>
+      <div><label>Prix (pour Business)</label><input id="pub-price" type="text" placeholder="Ex: 200$ ou Sur devis"></div>
+      <div><label>URL Vidéo YouTube (pour Portfolio)</label><input id="pub-url" type="url" placeholder="https://youtube.com/embed/..."></div>
+      <button type="submit" class="btn-publish">📤 Publier maintenant</button>
+    </form>
+    <div class="published-list">
+      <h4>Publications récentes</h4>
+      <div id="published-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
