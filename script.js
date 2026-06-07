@@ -196,6 +196,15 @@ const DEFAULT_GALLERY = [
   { id: 8, cat: 'clip', title: 'Clip Rumba Moderne', desc: 'Production vidéo soukous contemporain', icon: '🎸', type: 'video', url: '' },
   { id: 9, cat: 'pub', title: 'Spot Radio-Okapi', desc: 'Campagne nationale sensibilisation', icon: '📻', type: 'video', url: '' },
 ];
+{
+  id: 10,
+  cat: 'business',
+  title: 'Scèance photo',
+  desc: 'Séance photo professionnelle',
+  icon: '📸',
+  type: 'video',
+  url: 'videos/seance-photo.mp4'
+}
 
 const DEFAULT_NEWS = [
   { id: 1, cat: 'Studio', title: 'C-Service ouvre son nouveau studio 4K à Kinshasa', desc: 'Un équipement de pointe pour des productions cinéma au niveau international.', date: '15 Mai 2025', icon: '🎬' },
