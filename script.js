@@ -203,7 +203,7 @@ const DEFAULT_GALLERY = [
   desc: 'Séance photo professionnelle',
   icon: '📸',
   type: 'video',
-  url: 'videos/seance-photo.mp4'
+  url: '/videos/seance-photo.mp4'
 }
 
 const DEFAULT_NEWS = [
